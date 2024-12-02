@@ -4,7 +4,8 @@
     hostname: "localhost",
     username: "postgres",
     password: "postgres",
-    pool_size: 10
+    pool_size: 100,
+    after_connect: &App.pgtune/1
   )
 
 Benchee.run(
@@ -14,7 +15,7 @@ Benchee.run(
       Postgrex.query!(pool, query, params, opts)
     end
   },
-  parallel: 10,
+  parallel: 100,
   inputs: %{
     "select 1" => %{
       query: "select 1",
