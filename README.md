@@ -6,4 +6,4 @@ $ mix deps.get
 $ MIX_ENV=bench mix run bench/postgres.exs
 ```
 
-See Github Actions logs for results.
+See Github Actions logs for results. Remeber to multiply `ips` by `parallel` :)
