@@ -1,12 +1,15 @@
+parallel = 100
+
 {:ok, pool} =
   Postgrex.start_link(
     database: "postgres",
     hostname: "localhost",
     username: "postgres",
     password: "postgres",
-    pool_size: 100,
-    after_connect: &App.pgtune/1
+    pool_size: parallel
   )
+
+App.pgtune(pool)
 
 Benchee.run(
   %{
@@ -15,7 +18,7 @@ Benchee.run(
       Postgrex.query!(pool, query, params, opts)
     end
   },
-  parallel: 100,
+  parallel: parallel,
   inputs: %{
     "select 1" => %{
       query: "select 1",

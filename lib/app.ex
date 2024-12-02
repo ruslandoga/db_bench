@@ -8,7 +8,6 @@ defmodule App do
     workers = System.schedulers_online()
 
     cmds = [
-      "ALTER SYSTEM SET max_connections = '100'",
       "ALTER SYSTEM SET checkpoint_completion_target = '0.9'",
       "ALTER SYSTEM SET default_statistics_target = '100'",
       "ALTER SYSTEM SET random_page_cost = '1.1'",
