@@ -6,4 +6,4 @@ $ mix deps.get
 $ MIX_ENV=bench mix run bench/postgres.exs
 ```
 
-See Github Actions logs for results. Remeber to multiply `ips` by `parallel` :)
+See Github Actions [logs](https://github.com/ruslandoga/db_bench/actions/workflows/mix.yml) for results. Remeber to multiply `ips` by `parallel` :)
